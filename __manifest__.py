@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'yousentech_zatca_validation',
-	'version': '13.0.1.0.0',
+	'version': '17.0.1.0.0',
 	'summary': 'yousentech_zatca_validation',
 	'category': 'Tools',
 	'author': 'Developers team',
