@@ -19,9 +19,9 @@ class xx_account_move(models.Model):
     
     def button_draft(self):
         for rec in self:
-            if not self.user_has_groups("qimamhd_zatca_validation.group_exceed_zatca_validation"):
+            if not self.user_has_groups("yousentech_zatca_validation.group_exceed_zatca_validation"):
 
-                if rec.type in ('out_invoice','out_refund'):
+                if rec.move_type in ('out_invoice','out_refund'):
                     # if rec.edi_state != '':
                         if rec.edi_state in ('sent') :
                             raise ValidationError(
@@ -31,8 +31,8 @@ class xx_account_move(models.Model):
     
     def action_reverse(self):
         for rec in self:
-            if not self.user_has_groups("qimamhd_zatca_validation.group_exceed_zatca_validation"):
-                if rec.type in ('out_refund'):
+            if not self.user_has_groups("yousentech_zatca_validation.group_exceed_zatca_validation"):
+                if rec.move_type in ('out_refund'):
                     if rec.edi_state in ('sent') :
                         raise ValidationError(
                             "تنبيه : تم الارسال للهيئة لا يمكن اعادة التعيين كمسودة")
