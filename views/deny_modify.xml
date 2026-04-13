@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	    <data>
+
+
+          <menuitem id="zatca_closed_menu" name="الربط مع الهيئة" parent="account.account_account_menu" groups="account.group_account_user"
+              />
+
+
+<!-- mntns.service.areas-->
+
+         <record model="ir.ui.view" id="zatca_deny_modify_view">
+            <field name="name">zatca.deny.modify.view</field>
+            <field name="model">zatca.deny.modify</field>
+            <field name="type">form</field>
+              <field name="arch" type="xml">
+                    <form>
+                        <sheet>
+                            <group>
+                               
+                               
+                                    <field name="closed_date_to" />
+                                
+                             </group>
+                        </sheet>
+
+                     </form>
+              </field>
+        </record>
+
+        <record id="zatca_deny_modify_search_view" model="ir.ui.view">
+            <field name="name">zatca.deny.modify.search</field>
+            <field name="model">zatca.deny.modify</field>
+            <field name="arch" type="xml">
+                <search string="البحث"> 
+
+                    <field name="closed_date_to" />
+
+                </search>
+             </field>
+        </record>
+
+        <record id="zatca_deny_modify_tree_view" model="ir.ui.view">
+            <field name="name">zatca.deny.modify.tree</field>
+            <field name="model">zatca.deny.modify</field>
+            <field name="arch" type="xml">
+                <tree>
+                 
+
+                       <field name="closed_date_to" />
+				</tree>
+            </field>
+        </record>
+          <record id="action_zatca_deny_modify_view" model="ir.actions.act_window">
+            <field name="name">ايقاف تعديل الفواتير قبل الربط مع الهيئة</field>
+            <field name="res_model">zatca.deny.modify</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="zatca_deny_modify_tree_view"/>
+            <field name="target">current</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Click to create new Car Parts
+                </p>
+            </field>
+          </record>
+		  <menuitem id="zatca_deny_modify_menu" name="ايقاف التعديل قبل الربط" sequence="1" 
+                    groups="yousentech_zatca_validation.group_allow_access_zatca_deny_period"
+                    parent="zatca_closed_menu"
+		            action="action_zatca_deny_modify_view" />
+
+
+		</data>
+
+</odoo>

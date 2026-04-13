@@ -4,6 +4,15 @@
          <record id="group_exceed_zatca_validation" model="res.groups">
 			<field name="name"> تجاوز التحقق  للفوتره الالكترونية</field>
 		</record>
+		<record id="group_allow_cancel_or_delete_entry" model="res.groups">
+			<field name="name"> منح صلاحية الغاء الفواتير</field>
+		</record>
+		<record id="group_allow_modify_inv_before_zatca" model="res.groups">
+			<field name="name"> منح صلاحية تعديل الفواتير قبل فترة الربط مع الهيئة</field>
+		</record>
+		<record id="group_allow_access_zatca_deny_period" model="res.groups">
+			<field name="name"> منح صلاحية الوصول الى فترة الربط مع الهيئة</field>
+		</record>
          
 
     </data>

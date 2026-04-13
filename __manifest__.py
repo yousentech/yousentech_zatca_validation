@@ -16,14 +16,15 @@
    
 
     # any module necessary for this one to work correctly
-    'depends': ['base','account','account_edi'],
+    'depends': ['base','account','account_edi','l10n_sa_invoice'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
         'security/security.xml',
       
-        # 'views/account_move.xml',
+        'views/account_move.xml',
+        'views/deny_modify.xml',
 	#'wizards/recap.xml',
     ],
     # only loaded in demonstration mode

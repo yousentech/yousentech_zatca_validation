@@ -40,8 +40,7 @@ class xx_account_move(models.Model):
                         continue
                     else:
                         if rec.edi_state in ('sent') :
-                            raise ValidationError(
-                                "تنبيه : تم الارسال للهيئة لا يمكن اعادة التعيين كمسودة")
+                            raise ValidationError( "تنبيه : تم الارسال للهيئة لا يمكن انشاء مرتجع من فاتورة مرتجعة")
 
         return super(xx_account_move,self).action_reverse()
    
@@ -55,3 +54,17 @@ class xx_account_move(models.Model):
                                 "تنبيه : لا يمكن ترحيل بسبب عدم اسم للمنتجات")
 
         return super(xx_account_move,self).action_post()
+  
+    def button_cancel(self):
+        for rec in self:
+            if not self.user_has_groups("yousentech_zatca_validation.group_allow_cancel_or_delete_entry"):
+                if rec.type in ('out_invoice','out_refund'):
+                    if rec.edi_state in (False, None, ''):
+                        continue
+                    else:
+ 
+                        if rec.edi_state in ('sent'):
+                            raise ValidationError(
+                                   "تنبيه : لا يمكن الغاء العملية لفاتورة مرسلة للهيئة")
+
+        return super(xx_account_move,self).button_cancel()
