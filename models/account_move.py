@@ -57,7 +57,7 @@ class xx_account_move(models.Model):
   
     def button_cancel(self):
         for rec in self:
-            if not self.user_has_groups("yousentech_zatca_validation.group_allow_cancel_or_delete_entry"):
+            if not self.user_has_groups("yousentech_zatca_validation.group_allow_cancel_entry"):
                 if rec.type in ('out_invoice','out_refund'):
                     if rec.edi_state in (False, None, ''):
                         continue
@@ -65,6 +65,20 @@ class xx_account_move(models.Model):
  
                         if rec.edi_state in ('sent'):
                             raise ValidationError(
-                                   "تنبيه : لا يمكن الغاء العملية لفاتورة مرسلة للهيئة")
+                                   "تنبيه : لا يمكن الغاء الفاتورة ")
 
         return super(xx_account_move,self).button_cancel()
+        
+    def unlink(self):
+        for rec in self:
+            if not self.user_has_groups("yousentech_zatca_validation.group_allow_delete_entry"):
+                if rec.type in ('out_invoice','out_refund'):
+                    if rec.edi_state in (False, None, ''):
+                        continue
+                    else:
+ 
+                        if rec.edi_state in ('sent'):
+                            raise ValidationError(
+                                   "تنبيه : لا يمكن حذف الفاتورة ")
+
+        return super(xx_account_move,self).unlink()
