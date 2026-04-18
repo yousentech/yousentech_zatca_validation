@@ -18,7 +18,7 @@ class zatca_operation_closed(models.Model):
 
     def button_draft(self):
         for rec in self:
-            if rec.type in ('out_invoice','out_refund'):
+            if rec.move_type in ('out_invoice','out_refund'):
                 if not self.user_has_groups('yousentech_zatca_validation.group_allow_modify_inv_before_zatca'):
                     rec.check_invoice_date2()
             
@@ -27,7 +27,7 @@ class zatca_operation_closed(models.Model):
    
     def action_reverse(self):
         for rec in self:
-            if rec.type in ('out_invoice','out_refund'):
+            if rec.move_type in ('out_invoice','out_refund'):
                 if not self.user_has_groups('yousentech_zatca_validation.group_allow_modify_inv_before_zatca'):
                     rec.check_invoice_date2()
             
@@ -36,7 +36,7 @@ class zatca_operation_closed(models.Model):
         
     def button_cancel(self):
         for rec in self:
-            if rec.type in ('out_invoice','out_refund'):
+            if rec.move_type in ('out_invoice','out_refund'):
                 if not self.user_has_groups('yousentech_zatca_validation.group_allow_modify_inv_before_zatca'):
                     rec.check_invoice_date2()
             
@@ -44,7 +44,7 @@ class zatca_operation_closed(models.Model):
   
     def action_post(self):
         for rec in self:
-            if rec.type in ('out_invoice','out_refund'):
+            if rec.move_type in ('out_invoice','out_refund'):
                 if not self.user_has_groups('yousentech_zatca_validation.group_allow_modify_inv_before_zatca'):
                     rec.check_invoice_date2()
             
@@ -53,7 +53,7 @@ class zatca_operation_closed(models.Model):
     @api.constrains('invoice_date', 'date','l10n_sa_confirmation_datetime','l10n_sa_qr_code_str')
     def check_invoice_date(self):
         for rec in self:
-            if rec.type in ('out_invoice','out_refund'):
+            if rec.move_type in ('out_invoice','out_refund'):
 
                 sql_query = ""
             
@@ -82,7 +82,7 @@ class zatca_operation_closed(models.Model):
  
     def check_invoice_date2(self):
         for rec in self:
-            if rec.type in ('out_invoice','out_refund'):
+            if rec.move_type in ('out_invoice','out_refund'):
                 sql_query = ""
                 allow_operation_flag = self.user_has_groups('yousentech_zatca_validation.group_allow_modify_inv_before_zatca')
                 if rec.invoice_date:
@@ -105,7 +105,7 @@ class zatca_operation_closed(models.Model):
 
     def write(self, vals):
         for rec in self:
-            if rec.type in ('out_invoice','out_refund'):
+            if rec.move_type in ('out_invoice','out_refund'):
                 if not self.user_has_groups('yousentech_zatca_validation.group_allow_modify_inv_before_zatca'):
                     if vals.get('l10n_sa_confirmation_datetime') or vals.get('l10n_sa_qr_code_str'):
                         self.check_invoice_date2()

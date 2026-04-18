@@ -58,7 +58,7 @@ class xx_account_move(models.Model):
     def button_cancel(self):
         for rec in self:
             if not self.user_has_groups("yousentech_zatca_validation.group_allow_cancel_entry"):
-                if rec.type in ('out_invoice','out_refund'):
+                if rec.move_type in ('out_invoice','out_refund'):
                     if rec.edi_state in (False, None, ''):
                         continue
                     else:
@@ -72,7 +72,7 @@ class xx_account_move(models.Model):
     def unlink(self):
         for rec in self:
             if not self.user_has_groups("yousentech_zatca_validation.group_allow_delete_entry"):
-                if rec.type in ('out_invoice','out_refund'):
+                if rec.move_type in ('out_invoice','out_refund'):
                     if rec.edi_state in (False, None, ''):
                         continue
                     else:
