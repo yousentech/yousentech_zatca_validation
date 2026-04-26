@@ -59,11 +59,7 @@ class xx_account_move(models.Model):
         for rec in self:
             if not self.user_has_groups("yousentech_zatca_validation.group_allow_cancel_entry"):
                 if rec.move_type in ('out_invoice','out_refund'):
-                    if rec.edi_state in (False, None, ''):
-                        continue
-                    else:
- 
-                        if rec.edi_state in ('sent'):
+                    
                             raise ValidationError(
                                    "تنبيه : لا يمكن الغاء الفاتورة ")
 
@@ -73,11 +69,7 @@ class xx_account_move(models.Model):
         for rec in self:
             if not self.user_has_groups("yousentech_zatca_validation.group_allow_delete_entry"):
                 if rec.move_type in ('out_invoice','out_refund'):
-                    if rec.edi_state in (False, None, ''):
-                        continue
-                    else:
- 
-                        if rec.edi_state in ('sent'):
+                     
                             raise ValidationError(
                                    "تنبيه : لا يمكن حذف الفاتورة ")
 
