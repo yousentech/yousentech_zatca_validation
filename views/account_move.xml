@@ -8,6 +8,9 @@
                 <xpath expr="//button[@name='action_reverse']" position="attributes">
                         <attribute name="invisible">move_type in ('out_refund','in_refund')</attribute>
                 </xpath>  
+                <xpath expr="//button[@name='action_view_debit_notes']" position="attributes">
+                        <attribute name="groups">yousentech_zatca_validation.group_use_invoice_debit_note</attribute>
+                </xpath>  
            </field>
     </record>
 </odoo>

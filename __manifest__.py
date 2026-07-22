@@ -23,6 +23,7 @@
         # 'security/ir.model.access.csv',
         'security/security.xml',
       
+        'views/account_move.xml',
         'views/action_server.xml',
         'views/deny_modify.xml',
 	#'wizards/recap.xml',
