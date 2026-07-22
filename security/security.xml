@@ -20,6 +20,10 @@
 		<record id="group_switch_invoice_credit_note" model="res.groups">
 			<field name="name">تحويل الفاتورة / إشعار الدائن</field>
 		</record>
+		
+		<record id="group_use_invoice_debit_note" model="res.groups">
+			<field name="name">استخدام إشعار مدين</field>
+		</record>
          
 
     </data>

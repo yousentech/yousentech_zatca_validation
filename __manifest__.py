@@ -16,7 +16,7 @@
    
 
     # any module necessary for this one to work correctly
-    'depends': ['base','account','account_edi','l10n_sa'],
+    'depends': ['base','account','account_edi','l10n_sa','account_debit_note'],
 
     # always loaded
     'data': [
