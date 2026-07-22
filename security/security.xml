@@ -16,6 +16,10 @@
 		<record id="group_allow_access_zatca_deny_period" model="res.groups">
 			<field name="name"> منح صلاحية الوصول الى فترة الربط مع الهيئة</field>
 		</record>
+
+		<record id="group_switch_invoice_credit_note" model="res.groups">
+			<field name="name">تحويل الفاتورة / إشعار الدائن</field>
+		</record>
          
 
     </data>
