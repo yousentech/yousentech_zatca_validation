@@ -3,7 +3,5 @@
     <record id="account.action_move_switch_move_type" model="ir.actions.server">
         <field name="groups_id"  eval="[(6, 0, [ref('yousentech_zatca_validation.group_switch_invoice_credit_note')])]"/>
     </record>
-      <record id="account_debit_note.action_move_debit_note" model="ir.actions.server">
-        <field name="groups_id"  eval="[(6, 0, [ref('yousentech_zatca_validation.group_use_invoice_debit_note')])]"/>
-    </record>
+    
 </odoo>
