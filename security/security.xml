@@ -17,10 +17,12 @@
 			<field name="name"> منح صلاحية الوصول الى فترة الربط مع الهيئة</field>
 		</record>
 
-		<record id="group_switch_invoice_credit_note" model="res.groups">
-			<field name="name">تحويل الفاتورة / إشعار الدائن</field>
+		<record id="group_show_other_options_invoice" model="res.groups">
+			<field name="name">اظهار خيارات اضافية في اجراءات الفاتورة</field>
 		</record>
-		
+		<record id="group_use_invoice_debit_note" model="res.groups">
+			<field name="name">السماح باستخدام اشعار مدين</field>
+		</record>
 	 
 
     </data>
